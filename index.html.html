@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://kdata.or.kr/datavoucher/index.do -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="데이터바우처">
+<title>홈 - 데이터바우처</title>
+<script>
+	
+	
+	(function () {
+		var hostName = location.hostname;
+		var protocol = location.protocol;
+		
+		if (hostName == 'www.kdata.or.kr') {
+			location.host = 'kdata.or.kr';
+		}
+		
+		if (hostName == 'kdata.or.kr') {
+			if (!(protocol.indexOf('https') > -1)) {
+				location.protocol = 'https:';
+			}
+		}
+	})();
+</script>
+<style>
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/contents.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/board.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/btn.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/common.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/intro.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/main.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/popup.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/reset.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/style.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpts/table.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpms/jqgrid/ui.jqgrid.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpms/jqgrid/ui.multiselect.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpms/jquery-ui.css");
+	@import url("https://kdata.or.kr//datavoucher/css/dvpms/zTree/zTreeStyle.css");
+	@import url("data/newnavi.css");
+	
+/*	@import url("https://kdata.or.kr//datavoucher/slide-banner/slick.css"); */
+/*	@import url("https://kdata.or.kr//datavoucher/slide-banner/swiper-slide.css"); */ /* 20211220 추가 */
+	
+	.closeLayer02 { font-size: 12px; line-height: 1.3em; }
+	
+	
+	
+	
+	@media (max-width: 678px) {
+		.popup_wrap { display: none !important; }
+		.popup_cnt img { width: 100%; }
+		
+	}
+</style>
+
+	
+<!--<script type="text/javascript" src="./data/jquery-latest.min.js.다운로드"></script>-->
+<script type="text/javascript" src="./data/jquery-1.11.3.min.js"></script>
+	
+<!--<script type="text/javascript" src="./data/raonkupload.js.다운로드"></script>-->
+<!--<script type="text/javascript" src="./data/jquery-3.2.1.min.js.다운로드"></script>-->
+<script type="text/javascript" src="./data/ui.js"></script>
+<!--<script type="text/javascript" src="./data/common.js.다운로드"></script>-->
+<!--
+<script type="text/javascript" src="./data/html5shiv.min.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery.counterup.min.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery-migrate-1.2.1.min.js.다운로드"></script>
+<script type="text/javascript" src="./data/main_pop.js.다운로드"></script>
+<script type="text/javascript" src="./data/respond.min.js.다운로드"></script>
+<script type="text/javascript" src="./data/table.js.다운로드"></script>
+<script type="text/javascript" src="./data/waypoints.min.js.다운로드"></script>
+<script type="text/javascript" src="./data/popup.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery-ui.js.다운로드"></script>
+<script type="text/javascript" src="./data/custom.js.다운로드"></script>
+<script type="text/javascript" src="./data/bootstrap.min.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery.LoadingBox.js.다운로드"></script>
+<script type="text/javascript" src="./data/piwik.js.다운로드"></script>
+-->
+<!--<script type="text/javascript" src="./data/sub.js.다운로드"></script>-->
+<!--<script type="text/javascript" src="./data/swiper-3.4.2.min.js.다운로드"></script>-->
+<!--
+<script type="text/javascript" src="./data/jquery.ztree.core.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery.ztree.excheck.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery.ztree.exedit.js.다운로드"></script>
+-->
+	
+<script type="text/javascript" src="./data/newNavi.js"></script>
+
+
+<script type="text/javascript">
+	
+	$(document).ajaxStart(function() {
+		fn_lbOpen(); 
+	});
+	
+	$(document).ajaxStop(function() {
+		fn_lbClose(); 
+	});
+	
+	$(document).ajaxComplete(function(xhr, textStatus, error) {
+	    const json = textStatus.responseText;
+	    if(isJsonString(json)) {
+	        const obj = JSON.parse(json);
+	        
+	        if(obj.INTR_MSG != null) {
+	            $('body').html(obj.INTR_MSG);
+	        }
+	    }
+	});
+	function isJsonString(str) {
+	    try {
+	        var jsonStr = JSON.parse(str);
+	        return (typeof jsonStr === 'object');
+	    } catch (e) {
+	        return false;
+	    }
+	}
+	$(document).ready(function() {
+		
+		$.datepicker.regional['ko'] = {
+			closeText: '닫기',
+			prevText: '이전달',
+			nextText: '다음달',
+			currentText: '오늘',
+			monthNames: [
+				'1월(JAN)', '2월(FEB)', '3월(MAR)', '4월(APR)',
+				'5월(MAY)', '6월(JUN)', '7월(JUL)', '8월(AUG)',
+				'9월(SEP)', '10월(OCT)', '11월(NOV)', '12월(DEC)'
+			],
+			monthNamesShort: [
+				'1월', '2월', '3월', '4월', '5월', '6월',
+				'7월', '8월', '9월', '10월', '11월', '12월'
+			],
+			dayNames: [
+				'일', '월', '화', '수', '목', '금', '토'
+			],
+			dayNamesShort: [
+				'일', '월', '화', '수', '목', '금', '토'
+			],
+			dayNamesMin: [
+				'일', '월', '화', '수', '목', '금', '토'
+			],
+			weekHeader: 'Wk',
+			dateFormat: 'yy-mm-dd',
+			buttonImage: '/datavoucher/images/dvpms/icon_calendar.png',
+			buttonImageOnly: true,
+			buttonText: '달력',
+			firstDay: 0,
+			isRTL: false,
+			showButtonPanel: true,
+			showMonthAfterYear: true,
+			showOn: 'button',
+			yearSuffix: '',
+			yearRange: '2000:2100'
+		};
+		$.datepicker.setDefaults($.datepicker.regional['ko']);
+	});
+	
+	
+	function todayClosePopup(cookieName, popId) {
+		setCookie(cookieName, 'done', 1);
+		closePopup(popId);
+	}
+	
+	
+	function closePopup(popId) {
+		var popup = document.getElementById(popId);
+		popup.style.display = 'none';
+	}
+	
+	
+	function setCookie(name, value, expires) {
+		var todayDate = new Date();
+		todayDate.setDate(todayDate.getDate() + expires);
+		document.cookie = name + '=' + escape(value) + '; path=/; expires=' + todayDate.toGMTString() + ';';
+	}
+	
+	
+	function checkPopCookie(cookieName, popId) {
+		var cookies = document.cookie;
+		
+		if( cookies.indexOf(cookieName + '=done') < 0 ) {
+			document.getElementById(popId).style.display = 'block';
+		} else {
+			document.getElementById(popId).style.display = 'none';
+		}
+	}
+	
+	function fn_saveNewsLetter() {
+		if( isEmpty($('#newsAplyNm').val()) ) {
+			alert('이름을 입력해주세요.');
+			$('#newsAplyNm').focus();
+			return;
+		}
+		
+		if( isEmpty($('#newsAplyBlngInttNm').val()) ) {
+			alert('소속을 입력해주세요.');
+			$('#newsAplyBlngInttNm').focus();
+			return;
+		}
+		
+		var regExp2 = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+		if ( !regExp2.test($("#newsAplyEml").val()) ){
+			alert("유효하지 않은 이메일입니다. 이메일을 확인해주세요.");
+			$("#newsAplyEml").focus();
+			return;
+		}
+		
+		if ( $('input:checkbox[name=newsPicaYn]').is(':checked') == false ){
+			alert("개인정보 수집동의 확인해주세요.");
+			$("#newsPicaYn").focus();
+			return;
+		}
+		
+		$.ajax({
+			method : "POST",
+			datatype: 'json',
+			async: false,
+			url : "/pms/mm/insertNewsLetter.json",
+			data : $("form[name=newsLetterFrm]").serialize(),
+			success: function(data) {
+				if(data.RESULT ==  "SUCCESS") {
+					alert("저장되었습니다.");
+					
+					$("#popup_newsletter div div div").empty();
+					$("#popup_newsletter div div div").append("<p class='title'>구독완료</p>");
+				} else {
+					alert("에러가 발생하였습니다.");
+				}
+			}
+		});
+	}
+	
+	function fn_popOpen() {
+		document.getElementById('newsPersonal').style.display = 'block';
+	}
+</script>
+<link href="./data/uploadfile.css" rel="stylesheet" type="text/css">
+<!--
+<script type="text/javascript" src="./data/jquery.fileDownload.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery.uploadfile.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery.form.js.다운로드"></script>
+<script type="text/javascript" src="./data/grid.locale-kr.js.다운로드"></script>
+<script type="text/javascript" src="./data/jquery.jqGrid.js.다운로드"></script>
+<script type="text/javascript" src="./data/comm.js.다운로드"></script>
+-->
+</head>
+<body>
+    
+	
+	
+	<!-- //팝업 -->
+	
+	<div class="skipToContent"><a href="https://kdata.or.kr/datavoucher/index.do#subContainer">본문 바로가기</a></div>
+	
+	<div id="loading-box" style="position: fixed; top: 0px; left: 0px; background: #000; width: 100%; height: 100%; opacity: 0.8; z-index: 10000; cursor: pointer; text-align: center; display: none;">
+		<div style="margin: auto; width: 381px; height: 137px; position: relative; top: 50%; transform: translateY(-50%);">
+			<img src="./data/loading.gif" style="width: 100%; height: 100%;" title="로딩 이미지" alt="로딩 이미지">
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+<script>
+$(document).ready(function() {
+	// history.replaceState({}, null, location.pathname);
+	
+	
+	if ('' != '') {
+		$.active = false;
+		$('body').bind('click keypress', function() { $.active = true; }); // body에 클릭이벤트가 있었는지 체크
+		checkActivity(1800000, 1800000, 0); // timeout = 30(1800000) minutes, interval = 1(60000) minute.
+	}
+	
+	
+	$(document).keydown(function(e) {
+		if (e.target.nodeName != 'INPUT' && e.target.nodeName != 'TEXTAREA') {
+			if (e.keyCode == 8) {
+				return false;
+			}
+		}
+		
+		if (e.target.readOnly) { // readonly일 경우 true
+			if (e.keyCode == 8) {
+				return false;
+			}
+		}
+	});
+});
+
+function checkActivity(timeout, interval, elapsed) {
+	if ($.active) {
+		elapsed = 0;
+		$.active = false;
+		$.get('heartbeat');
+	}
+	
+	if (elapsed < timeout) {
+		elapsed += interval;
+		
+		setTimeout(function() {
+			checkActivity(timeout, interval, elapsed);
+		}, interval);
+	} else {
+		$('.wrap_all').fadeOut();
+		
+		alert('장시간 미사용으로 자동 로그아웃 처리가 되었습니다.');
+		
+		
+		$('#headerSiteType').val('datavoucher');
+		$('#logoutForm').attr('action', '/datavoucher/mm/kdataLogout.do').submit();
+	}
+}
+
+
+function fn_isTabType(tabType) {
+	$('#headerTabType').val(tabType);
+	$("#targetMenu1").attr("title", "닫힘");
+	$("#targetMenu2").attr("title", "닫힘");
+	
+	if (tabType == 'file') {
+		$('#headerPrdcDsncCd').val('P11002001');
+	}
+	
+	$('#tabTypeForm').attr('action', '/datavoucher/is/selectPortalSearch.do').submit();
+}
+
+
+function fn_login() {
+	window.location.href = '/datavoucher/cm/portalLoginPage.do';
+}
+
+
+function fn_logout(siteType) {
+	$('#headerSiteType').val(siteType);
+	$('#logoutForm').attr('action', '/datavoucher/mm/kdataLogout.do').submit();
+}
+
+
+function fn_intrPrdc(menuType) {
+	$('#headerMenuType').val(menuType);
+	$('#menuForm').attr('action', '/datavoucher/mp/ip/selectPintrPrdcList.do').submit();
+}
+
+
+
+
+
+function fn_pmsMove(mberId) {
+	
+	
+	$('#pmsMoveForm').attr('action', '/pms/index.do').attr('target', '_blank').submit();
+}
+
+
+function fn_popup(seq) {
+	var url;
+	var title;
+	var width;
+	var height;
+	
+	switch(seq) {
+	case 1:
+		url = '/pms/cm/termsOfUsePop.do';
+		title = 'termsOfUsePop';
+		width = 1170;
+		height = 900;
+		break;
+	case 2:
+		url = '/pms/cm/privacyPolicyPop.do';
+		title = 'privacyPolicyPop';
+		width = 1170;
+		height = 900;
+		break;
+	default:
+		return;
+	}
+	
+	var options = 'scrollbars=yes';
+	
+	popupLink(url, title, height, width, options);
+}
+
+function fn_clickGuid(n) {
+	var targetMenu = $('#targetMenu'+n).attr('title');
+	console.log(targetMenu);
+	if(n == '0') {
+		if (targetMenu == '메뉴 접힘') {
+			$('#targetMenu'+n).attr('title', '메뉴 열림');
+		} else {
+			$('#targetMenu'+n).attr('title', '메뉴 접힘');
+		}	
+	} else {
+		if (targetMenu == '닫힘') {
+			$('#targetMenu'+n).attr('title', '열림');
+		} else {
+			$('#targetMenu'+n).attr('title', '닫힘');
+		}	
+	}
+}
+</script>
+
+<!-- sub_wrap_all start -->
+<div id="top" style="bottom: 235px; display: block;">TOP</div>
+<!-- Header -->
+<header id="nHeader" class="nav-down">
+	<div id="logoArea">
+		<h1 id="logo"><a href="https://kdata.or.kr/datavoucher/index.do" title="데이터바우처 바로가기"><img src="./data/logo.jpg" alt="데이터바우처 로고"></a></h1>
+	</div>
+	
+	<div id="loginArea">
+		<ul>
+			<li class="systemLink"> 
+				<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_pmsMove(&#39;&#39;); return false;" class="active" title="새 창 열림">사업관리시스템 바로가기<span class="hidden">사업관리시스템 바로가기</span></a>
+			</li>
+		</ul>
+		<ul>
+			<!-- 로그인 전 -->
+			
+				<li class="loginKdata">
+					<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_login(); return false;" class="active login">로그인</a>
+				</li>
+			
+			<!-- // 로그인 전 -->
+			
+			<!-- 로그인 후 -->
+			
+			<!-- // 로그인 후 -->
+		</ul>
+	</div>
+	
+	<!-- 네비게이션 -->
+	<!-- 상단메뉴 -->
+	<nav id="gnb1">
+		<ul>
+			<li class="">
+				<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="return false;">데이터바우처 안내</a>
+				<div class="submenu">
+					<ul>
+						<li class=""><a href="https://kdata.or.kr/datavoucher/bg/nt/ptNoticeList.do">공지사항</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/dvi/ptDvInfoDetail.do">데이터바우처 소개</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/dvi/ptBrandIDInfoDetail.do">BI 소개</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/dvi/ptCharInfoDetail.do">캐릭터 소개</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/sc/selectPservCtFaqList.do">FAQ</a></li>
+					</ul>
+				</div>
+			</li>
+			<li class=""><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_isTabType(&#39;file&#39;); return false;">데이터상품</a></li>
+			<li class=""><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_isTabType(&#39;prcs&#39;); return false;">가공서비스</a></li>
+			<li class="">
+				<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="return false;">홍보광장</a>
+				<div class="submenu">
+					<ul>
+						<li class=""><a href="https://kdata.or.kr/datavoucher/pd/nd/ptNewsDtaList.do">보도자료</a></li>
+						<li class=""><a href="https://kdata.or.kr/datavoucher/pd/vd/ptVdoDtaList.do">동영상자료</a></li>
+						<li class=""><a href="https://kdata.or.kr/datavoucher/pd/id/ptImgDtaList.do">이미지자료</a></li>
+						<li class=""><a href="https://kdata.or.kr/datavoucher/pd/sd/ptSpplEnprVdoDtaList.do">공급기업소개영상자료</a></li>
+						
+						
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</nav>
+	<!-- // 상단메뉴 -->
+	
+	<!-- 모바일 메뉴 -->
+	<nav id="gnb2"><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="return false;" class="control open" title="메뉴 열기">열기</a>
+		<ul>
+			<li>
+				<a id="targetMenu1" href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_clickGuid(&#39;1&#39;); return false;" title="닫힘">데이터바우처 안내</a>
+				<div class="submenu">
+					<ul>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/nt/ptNoticeList.do">공지사항</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/dvi/ptDvInfoDetail.do">데이터바우처 소개</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/dvi/ptBrandIDInfoDetail.do">BI 소개</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/dvi/ptCharInfoDetail.do">캐릭터 소개</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/bg/sc/selectPservCtFaqList.do">FAQ</a></li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_isTabType(&#39;file&#39;); return false;">데이터상품</a></li>
+			<li><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_isTabType(&#39;prcs&#39;); return false;">가공서비스</a></li>
+			<li>
+				<a id="targetMenu2" href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_clickGuid(&#39;2&#39;); return false;" title="닫힘">홍보광장</a>
+				<div class="submenu">
+					<ul>
+						<li><a href="https://kdata.or.kr/datavoucher/pd/nd/ptNewsDtaList.do">보도자료</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/pd/vd/ptVdoDtaList.do">동영상자료</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/pd/id/ptImgDtaList.do">이미지자료</a></li>
+						<li><a href="https://kdata.or.kr/datavoucher/pd/sd/ptSpplEnprVdoDtaList.do">공급기업소개영상자료</a></li>
+						
+						 
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="return false;" class="control close" title="메뉴 닫기">닫기</a>
+	</nav>
+	<!-- // 모바일 메뉴 -->
+	<!-- // 네비게이션 -->
+</header>
+<!-- // Header -->
+
+
+<form id="tabTypeForm" name="tabTypeForm" method="post">
+	<input type="hidden" id="headerTabType" name="tabType" value="">
+	<input type="hidden" id="headerPrdcDsncCd" name="prdcDsncCd" value="">
+</form>
+
+
+<form id="logoutForm" name="logoutForm" method="post">
+	<input type="hidden" id="headerSiteType" name="siteType" value="">
+</form>
+
+
+<form id="menuForm" name="menuForm" method="post">
+	<input type="hidden" id="headerMenuType" name="menuType" value="">
+</form>
+
+
+<form id="pmsMoveForm" name="pmsMoveForm" method="post">
+	<input type="hidden" id="headerMberId" name="mberId" value="">
+	<input type="hidden" id="headerSiteType2" name="siteType" value="">
+</form>
+	
+
+
+
+
+
+
+
+<script>
+	$(function() {
+		
+
+		
+		
+		
+		$('#searchType').val('is');
+		
+		
+		
+		$('#sprnSctrCdSel').on('change', function() {
+			var sprnSctrCd = this.value;
+			
+			$('#ctgrCdSel').val('');
+			
+			
+			if (sprnSctrCd == 'P01014001') {
+				$('#prdcDsncCdSel').val('');
+				$('.salDsnc').show();
+				$('.salCtgr').show();
+				$('.prcsDsnc').hide();
+				$('.prcsCtgr').hide();
+				$('#sprnDsncCdSel').val('');
+			}
+			
+			else if (sprnSctrCd == 'P01014002') {
+				$('#prdcDsncCdSel').val('P01014002');
+				$('.salDsnc').hide();
+				$('.salCtgr').hide();
+				$('.prcsDsnc').show();
+				$('.prcsCtgr').show();
+				$('#sprnDsncCdSel').val('P11014001');
+			}
+			
+			else {
+				$('.salDsnc').show();
+				$('.salCtgr').show();
+				$('.prcsDsnc').show();
+				$('.prcsCtgr').show();
+			}
+		});
+		
+		
+		$('#prdcDsncCdSel').on('change', function() {
+			var prdcDsncCd = this.value;
+			
+			
+			if (prdcDsncCd == 'P11002001') {
+				$('#sprnSctrCdSel').val('P01014001');
+				$('.salCtgr').show();
+				$('.prcsCtgr').hide();
+			}
+			
+			else if (prdcDsncCd == 'P11002002') {
+				$('#sprnSctrCdSel').val('P01014001');
+				$('.salCtgr').show();
+				$('.prcsCtgr').hide();
+			}
+			
+			else if (prdcDsncCd == 'P01014002') {
+				$('#sprnSctrCdSel').val('P01014002');
+				$('.salDsnc').hide();
+				$('.salCtgr').hide();
+				$('.prcsCtgr').show();
+			}
+			
+			else {
+				if ($('#sprnSctrCdSel option:selected').val() == 'P01014001') {
+					$('.salDsnc').show();
+					$('.salCtgr').show();
+				} else if ($('#sprnSctrCdSel option:selected').val() == 'P01014002') {
+					$('.prcsDsnc').show();
+					$('.prcsCtgr').show();
+				} else {
+					$('.salDsnc').show();
+					$('.salCtgr').show();
+					$('.prcsDsnc').show();
+					$('.prcsCtgr').show();
+				}
+			}
+		});
+		
+		
+		$('#ctgrCdSel').on('change', function() {
+			var ctgrCd = this.value;
+			
+			
+			if (ctgrCd.substring(0, 6) == 'P01016') {
+				$('#sprnSctrCdSel').val('P01014001');
+				$('.salDsnc').show();
+				$('.prcsDsnc').hide();
+				$('.prcsCtgr').hide();
+			}
+			
+			else if (ctgrCd.substring(0, 6) == 'P01017') {
+				$('#sprnSctrCdSel').val('P01014002');
+				$('#prdcDsncCdSel').val('P01014002');
+				$('.salDsnc').hide();
+				$('.prcsDsnc').show();
+				$('.salCtgr').hide();
+			}
+			
+			else {
+				$('.salCtgr').show();
+				$('.prcsCtgr').show();
+			}
+		});
+		
+		
+		$('#sprnDsncCdSel').on('change', function() {
+			var sprnDsncCd = this.value;
+			
+			$('#ctgrCdSel').val('');
+			
+			
+			if (sprnDsncCd == 'P11014001') {
+				$('#sprnSctrCdSel').val($('#sprnSctrCdSel option:selected').val());
+				$('#prdcDsncCdSel').val($('#prdcDsncCdSel option:selected').val());
+				
+				
+				if ($('#sprnSctrCdSel').val() == 'P01014001') {
+					$('.prcsDsnc').hide();
+					$('.prcsCtgr').hide();	
+				}
+				
+				else if ($('#sprnSctrCdSel').val() == 'P01014002') {
+					$('.salDsnc').hide();
+					$('.salCtgr').hide();
+				}
+			}
+			
+			else if (sprnDsncCd == 'P11014002') {
+				$('#sprnSctrCdSel').val('P01014001');
+				$('#prdcDsncCdSel').val('');
+				$('.salDsnc').show();
+				$('.salCtgr').show();
+				$('.prcsDsnc').hide();
+				$('.prcsCtgr').hide();
+			}
+			
+			else if (sprnDsncCd == 'P11014003') {
+				$('#sprnSctrCdSel').val('P01014001');
+				$('#prdcDsncCdSel').val('');
+				$('.salDsnc').show();
+				$('.salCtgr').show();
+				$('.prcsDsnc').hide();
+				$('.prcsCtgr').hide();
+			}
+			
+			else {
+				$('.salDsnc').show();
+				$('.salCtgr').show();
+				$('.prcsDsnc').show();
+				$('.prcsCtgr').show();
+			}
+		});
+		
+		
+		$('#searchVal').on('keypress', function(e) {
+			if (e.keyCode == 13) {
+				e.preventDefault();
+				fn_search();
+			}
+		});
+		
+		
+		$('#searchBtn').on('click', function(e) {
+			e.preventDefault();
+			fn_search();
+		});
+		
+		$('.als-item,.slider-item').on('click', function() {
+			var ctgrCd = $(this).attr('id');
+			
+			if (ctgrCd.substring(0, 6) == 'P01016') {
+				$('#tabType').val('file');
+				$('#salCtgr').val(ctgrCd);
+			}
+			if (ctgrCd.substring(0, 6) == 'P01017') {
+				$('#tabType').val('prcs');
+				$('#prcsCtgr').val(ctgrCd);
+			}
+			
+			$('#mainFrm').attr('action', '/datavoucher/is/selectPortalSearch.do').submit();
+		});
+	});
+	
+	
+	function fn_search() {
+		var sprnSctrCd = $('#sprnSctrCdSel').val();
+		var prdcDsncCd = $('#prdcDsncCdSel').val();
+		var ctgrCd = $('#ctgrCdSel').val();
+		
+		var searchSprnDsncCd = $('#sprnDsncCdSel').val();
+		
+		
+		if (sprnSctrCd == 'P01014001') $('#tabType').val('file');
+		if (sprnSctrCd == 'P01014002') $('#tabType').val('prcs');
+		if (prdcDsncCd == 'P11002001') $('#tabType').val('file');
+		if (prdcDsncCd == 'P11002002') $('#tabType').val('api');
+		if (prdcDsncCd == 'P01014002') $('#tabType').val('prcs');
+		
+		if (searchSprnDsncCd == 'P11014001') {
+			if (prdcDsncCd == 'P11002001') $('#tabType').val('file');
+			if (prdcDsncCd == 'P11002002') $('#tabType').val('api');
+		}
+		if (searchSprnDsncCd == 'P11014002') {
+			if (prdcDsncCd == 'P11002001') $('#tabType').val('file');
+			if (prdcDsncCd == 'P11002002') $('#tabType').val('api');
+		}
+		if (searchSprnDsncCd == 'P11014003') {
+			if (prdcDsncCd == 'P11002001') $('#tabType').val('file');
+			if (prdcDsncCd == 'P11002002') $('#tabType').val('api');
+		}
+		
+		
+		if (prdcDsncCd != 'P01014002') $('#prdcDsncCd').val(prdcDsncCd);
+		
+		
+		if (ctgrCd.substring(0, 6) == 'P01016') {
+			
+			$('#salCtgr').val(ctgrCd);
+		}
+		if (ctgrCd.substring(0, 6) == 'P01017') {
+			$('#tabType').val('prcs');
+			$('#prcsCtgr').val(ctgrCd);
+		}
+		
+		
+		$('#searchSprnDsncCd').val(searchSprnDsncCd);
+		
+		$('#mainFrm').attr('action', '/datavoucher/is/selectPortalSearch.do').submit();
+	}
+	
+	
+	function e_clickCounter(tabType, prdcDsncCd) {
+		$('#tabType').val(tabType);
+		
+		if (prdcDsncCd) {
+			$('#prdcDsncCd').val(prdcDsncCd);
+		}
+		
+		$('#mainFrm').attr('action', '/datavoucher/is/selectPortalSearch.do').submit();
+	}
+	
+	
+	function fn_noticeDetail(boardId) {
+		$('#boardId').val(boardId);
+		$('#mainFrm').attr('action', '/datavoucher/bg/nt/ptNoticeDetail.do').submit();
+	}
+	
+	
+	function fn_noticeList() {
+		$('#mainFrm').attr('action', '/datavoucher/bg/nt/ptNoticeList.do').submit();
+	}
+	
+	
+	function fn_popOpen(popId) {
+		$('#'+popId).show();
+		
+		/* WA인증_탭 초점이동 처리_한상호_20231214 */
+		fn_tabFocus();
+	}	
+	
+	/* WA인증_탭 초점이동 처리_한상호_20231214 */
+	function fn_tabFocus() {
+		var layerpopupWrapper = document.querySelector('.layerpopupWrapper');
+		layerpopupWrapper.addEventListener('keydown', trapTabKey);// key를 누르고 있을때
+		
+		var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]'; //포커스가 갈 수 있는 엘레먼트
+		var focusableElements = layerpopupWrapper.querySelectorAll(focusableElementsString); //querySelectorAll은 nodelist로 반환함
+		focusableElements = Array.prototype.slice.call(focusableElements); //노드 목록을 어레이로 변환, 변환하지 않아도 firstTabStop, lastTabStop 값 가져올 수 있음
+
+		var firstTabStop = focusableElements[0];
+		var lastTabStop = focusableElements[focusableElements.length - 1];
+		
+		function trapTabKey(e) {
+		   // Check for TAB key press
+		   if (e.keyCode === 9) {
+		
+		     // SHIFT + TAB
+		     if (e.shiftKey) {    	 
+		       if (document.activeElement === firstTabStop) {
+			       e.preventDefault();
+			       lastTabStop.focus();
+		       }
+		      
+		     // TAB
+		     } else {
+		       if (document.activeElement === lastTabStop) {
+			       e.preventDefault();
+			       firstTabStop.focus();
+		       }
+		     }
+		   }
+		}		
+	}	
+</script>
+
+<div class="main_wrap_bg">
+	<div class="main_wrap">
+		
+		<form id="mainFrm" name="mainFrm" action="https://kdata.or.kr/datavoucher/index.do" method="post">
+			<input type="hidden" name="tabType" id="tabType">
+			<input type="hidden" name="prdcDsncCd" id="prdcDsncCd">
+			<input type="hidden" name="salCtgr" id="salCtgr">
+			<input type="hidden" name="prcsCtgr" id="prcsCtgr">
+			<input type="hidden" name="searchType" id="searchType" value="is">
+			<input type="hidden" name="boardId" id="boardId">
+			
+			
+			<input type="hidden" id="searchSprnDsncCd" name="searchSprnDsncCd">
+			
+			<div class="main_container" id="subContainer">
+				<div class="main_title">
+					<div class="txt">
+						<img src="./data/main_title.png" alt="데이터바우처 로고">
+					</div>
+				</div>
+				
+				
+				<div class="main_contents">
+					
+					<div class="main_search">
+						<div class="search_box">
+							<div class="serach_in_box">
+								<ul>
+									<li>
+										<input id="searchVal" name="searchVal" type="text" title="검색어" placeholder="검색어를 입력해주세요.">
+									</li>
+								</ul>
+							</div>
+							<button type="button" id="searchBtn">
+								<span class="text_ind">검색</span>
+							</button>
+						</div>
+						
+						<div class="search_divide_bg">
+							<div class="search_divide">
+								<ul>
+									<li>
+										<img src="./data/main_serach_icon1.png" alt="기업 구분 이미지">
+										<label for="sprnSctrCdSel" class="hidden">
+											기업 구분
+										</label>
+										<select id="sprnSctrCdSel">
+											<option value="" selected="selected">기업 구분</option>
+											<option value="P01014001">판매</option>
+											<option value="P01014002">가공</option>
+										</select>
+									</li>
+									<li>
+										<img src="./data/main_search_icon4.png" alt="등록처 구분 이미지">
+										<label for="sprnDsncCdSel" class="hidden">
+											등록처 구분
+										</label>
+										<select id="sprnDsncCdSel">
+											<option value="" selected="selected">등록처 구분</option>
+											<option value="P11014001">일반</option>
+											<option value="P11014002">플랫폼</option>
+											<option value="P11014003">금융데이터거래소</option>
+										</select>
+									</li>
+									<li>
+										<img src="./data/main_serach_icon2.png" alt="상품 구분 이미지">
+										<label for="prdcDsncCdSel" class="hidden">
+											상품 구분
+										</label>
+										<select id="prdcDsncCdSel">
+											<option value="" selected="selected">상품 구분</option>
+											<option class="salDsnc" value="P11002001">파일</option>
+											<option class="salDsnc" value="P11002002">API</option>
+											<option class="prcsDsnc" value="P01014002">가공</option>
+										</select>
+									</li>
+									<li>
+										<img src="./data/main_serach_icon3.png" alt="카테고리 이미지">
+										<label for="ctgrCdSel" class="hidden">
+											카테고리
+										</label>
+										<select id="ctgrCdSel">
+											<option value="" selected="selected">카테고리</option>
+											<option value="" disabled="disabled">::: 데이터 상품 :::</option>
+											
+												<option class="salCtgr" value="P01016001">교통</option>
+											
+												<option class="salCtgr" value="P01016002">금융</option>
+											
+												<option class="salCtgr" value="P01016003">농식품</option>
+											
+												<option class="salCtgr" value="P01016004">디지털산업혁신</option>
+											
+												<option class="salCtgr" value="P01016005">라이프로그</option>
+											
+												<option class="salCtgr" value="P01016006">문화</option>
+											
+												<option class="salCtgr" value="P01016007">산림</option>
+											
+												<option class="salCtgr" value="P01016008">소방안전</option>
+											
+												<option class="salCtgr" value="P01016009">스마트치안</option>
+											
+												<option class="salCtgr" value="P01016010">유통소비</option>
+											
+												<option class="salCtgr" value="P01016011">중소기업</option>
+											
+												<option class="salCtgr" value="P01016012">지역경제</option>
+											
+												<option class="salCtgr" value="P01016013">통신</option>
+											
+												<option class="salCtgr" value="P01016014">해양수산</option>
+											
+												<option class="salCtgr" value="P01016015">헬스케어</option>
+											
+												<option class="salCtgr" value="P01016016">환경</option>
+											
+												<option class="salCtgr" value="P01016017">감염병</option>
+											
+												<option class="salCtgr" value="P01016018">공간융합</option>
+											
+												<option class="salCtgr" value="P01016019">부동산</option>
+											
+												<option class="salCtgr" value="P01016020">스마트팜</option>
+											
+												<option class="salCtgr" value="P01016021">연안</option>
+											
+											<option value="" disabled="disabled">::: 가공서비스 :::</option>
+											
+												<option class="prcsCtgr" value="P01017001">전처리</option>
+											
+												<option class="prcsCtgr" value="P01017002">품질</option>
+											
+												<option class="prcsCtgr" value="P01017003">코딩</option>
+											
+												<option class="prcsCtgr" value="P01017004">시각화</option>
+											
+												<option class="prcsCtgr" value="P01017005">정보추출또는조합</option>
+											
+												<option class="prcsCtgr" value="P01017006">태깅또는라벨링</option>
+											
+												<option class="prcsCtgr" value="P01017007">분석</option>
+											
+												<option class="prcsCtgr" value="P01017008">기타</option>
+											
+										</select>
+									</li>
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+					
+					
+					
+					<div id="counter_wrap">
+						<div class="counter_box scrollDown">
+							<dl>
+								<dt>파일</dt>
+								<dd><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="e_clickCounter(&#39;file&#39;, &#39;P11002001&#39;); return false;"><span class="counter">2481</span>건</a></dd>
+							</dl>
+							<dl>
+								<dt>API</dt>
+								<dd><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="e_clickCounter(&#39;api&#39;, &#39;P11002002&#39;); return false;"><span class="counter">136</span>건</a></dd>
+							</dl>
+							<dl>
+								<dt>가공</dt>
+								<dd><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="e_clickCounter(&#39;prcs&#39;); return false;"><span class="counter">1044</span>건</a></dd>
+							</dl>
+						</div>
+					</div>
+					
+					<div class="notice_wrap">
+						
+						<div class="class_box">
+							<div class="demo_container">
+								<div class="als-container" id="" data-id="als-container_0"> 
+									 
+									<div class="main_quick">
+										<ul>
+											<li><a href="https://kdata.or.kr/datavoucher/bg/dvi/ptDvInfoDetail.do"><img src="./data/icon_mainq01.png" alt="데이터바우처 소개 아이콘"><p>데이터바우처 소개</p></a></li>	
+											<li><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="javascript:fn_isTabType(&#39;file&#39;); return false;"><img src="./data/icon_mainq02.png" alt="데이터상품 아이콘"><p>데이터상품</p></a></li>
+											<li><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="javascript:fn_isTabType(&#39;prcs&#39;); return false;"><img src="./data/icon_mainq03.png" alt="가공서비스 아이콘"><p>가공서비스</p></a></li>
+										</ul>
+									</div>
+									 
+									<a href="https://kdata.or.kr/datavoucher/index.do#javascript:;" class="openLayerPopup" onclick="fn_popOpen(&#39;target&#39;); return false;">
+										<span>+ 카테고리 전체보기</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						
+						<div class="mask" style="display: none;"></div>
+						
+						<div class="layerpopupWrapper" style="display:none; height: auto; overflow-y: scroll;" id="target">
+							<div class="layerpopupArea" style="padding: 0px 0px 0px 0px;">
+								<a class="btnClose close_popup" href="https://kdata.or.kr/datavoucher/index.do"><img alt="창닫기" src="./data/close_icon.png"> </a>
+								<h4>분류 전체보기</h4>
+								<h5 style="margin-left: 20px;">데이터상품</h5>
+								<div class="pop_box">
+									<ul>
+										<li class="als-item sale_off01" id="P01016001" data-id="als-item_1"><a href="https://kdata.or.kr/datavoucher/index.do#">교통</a></li>
+										<li class="als-item sale_off02" id="P01016002" data-id="als-item_2"><a href="https://kdata.or.kr/datavoucher/index.do#">금융</a></li>
+										<li class="als-item sale_off03" id="P01016003" data-id="als-item_3"><a href="https://kdata.or.kr/datavoucher/index.do#">농식품</a></li>
+										<li class="als-item sale_off04" id="P01016004" data-id="als-item_4"><a href="https://kdata.or.kr/datavoucher/index.do#">디지털산업혁신</a></li>
+										<li class="als-item sale_off05" id="P01016005" data-id="als-item_5"><a href="https://kdata.or.kr/datavoucher/index.do#">라이프로그</a></li>
+										<li class="als-item sale_off06" id="P01016006" data-id="als-item_6"><a href="https://kdata.or.kr/datavoucher/index.do#">문화</a></li>
+										<li class="als-item sale_off07" id="P01016007" data-id="als-item_7"><a href="https://kdata.or.kr/datavoucher/index.do#">산림</a></li>
+										<li class="als-item sale_off08" id="P01016008" data-id="als-item_8"><a href="https://kdata.or.kr/datavoucher/index.do#">소방안전</a></li>
+										<li class="als-item sale_off09" id="P01016009" data-id="als-item_9"><a href="https://kdata.or.kr/datavoucher/index.do#">스마트치안</a></li>
+										<li class="als-item sale_off10" id="P01016010" data-id="als-item_10"><a href="https://kdata.or.kr/datavoucher/index.do#">유통소비</a></li>
+										<li class="als-item sale_off11" id="P01016011" data-id="als-item_11"><a href="https://kdata.or.kr/datavoucher/index.do#">중소기업</a></li>
+										<li class="als-item sale_off12" id="P01016012" data-id="als-item_12"><a href="https://kdata.or.kr/datavoucher/index.do#">지역경제</a></li>
+										<li class="als-item sale_off13" id="P01016013" data-id="als-item_13"><a href="https://kdata.or.kr/datavoucher/index.do#">통신</a></li>
+										<li class="als-item sale_off14" id="P01016014" data-id="als-item_14"><a href="https://kdata.or.kr/datavoucher/index.do#">해양수산</a></li>
+										<li class="als-item sale_off15" id="P01016015" data-id="als-item_15"><a href="https://kdata.or.kr/datavoucher/index.do#">헬스케어</a></li>
+										<li class="als-item sale_off16" id="P01016016" data-id="als-item_16"><a href="https://kdata.or.kr/datavoucher/index.do#">환경</a></li>
+										<li class="als-item sale_off17" id="P01016017" data-id="als-item_17"><a href="https://kdata.or.kr/datavoucher/index.do#">감염병</a></li>
+										<li class="als-item sale_off18" id="P01016018" data-id="als-item_18"><a href="https://kdata.or.kr/datavoucher/index.do#">공간융합</a></li>
+										<li class="als-item sale_off19" id="P01016019" data-id="als-item_19"><a href="https://kdata.or.kr/datavoucher/index.do#">부동산</a></li>
+										<li class="als-item sale_off20" id="P01016020" data-id="als-item_20"><a href="https://kdata.or.kr/datavoucher/index.do#">스마트팜</a></li>
+										<li class="als-item sale_off21" id="P01016021" data-id="als-item_21"><a href="https://kdata.or.kr/datavoucher/index.do#">연안</a></li>
+									</ul>
+								</div>
+								<h5 style="margin-left: 20px;">가공서비스</h5>
+								<div class="pop_box">
+									<ul>
+										<li class="als-item processing_off01" id="P01017001" data-id="als-item_17"><a href="https://kdata.or.kr/datavoucher/index.do#">전처리</a></li>
+										<li class="als-item processing_off02" id="P01017002" data-id="als-item_18"><a href="https://kdata.or.kr/datavoucher/index.do#">품질</a></li>
+										<li class="als-item processing_off03" id="P01017003" data-id="als-item_19"><a href="https://kdata.or.kr/datavoucher/index.do#">코딩</a></li>
+										<li class="als-item processing_off04" id="P01017004" data-id="als-item_20"><a href="https://kdata.or.kr/datavoucher/index.do#">시각화</a></li>
+										<li class="als-item processing_off05" id="P01017005" data-id="als-item_21"><a href="https://kdata.or.kr/datavoucher/index.do#">정보추출&nbsp;또는&nbsp;조합</a></li>
+										<li class="als-item processing_off06" id="P01017006" data-id="als-item_22"><a href="https://kdata.or.kr/datavoucher/index.do#">태깅&nbsp;또는&nbsp;라벨링</a></li>
+										<li class="als-item processing_off07" id="P01017007" data-id="als-item_23"><a href="https://kdata.or.kr/datavoucher/index.do#">분석</a></li>
+										<li class="als-item processing_off08" id="P01017008" data-id="als-item_24"><a href="https://kdata.or.kr/datavoucher/index.do#">기타</a></li>
+									</ul>
+								</div>
+								
+							</div>
+						</div>
+						
+						
+						
+						<div class="notice_box">
+							<h4>공지사항</h4>
+							<ul>
+								
+									<li>
+										<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_noticeDetail(&#39;BORD000000000154&#39;); return false;">
+											<b>[공고] 2023년 데이터 품질대상 안내</b>
+											<span>
+												
+												2023-10-30
+											</span>
+										</a>
+									</li>
+								
+									<li>
+										<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_noticeDetail(&#39;BORD000000000153&#39;); return false;">
+											<b>데이터가치평가 및 품질인증제도 활성화 방안 수요조사</b>
+											<span>
+												
+												2023-10-30
+											</span>
+										</a>
+									</li>
+								
+									<li>
+										<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_noticeDetail(&#39;BORD000000000152&#39;); return false;">
+											<b>2023년 데이터 수요조사 결과</b>
+											<span>
+												
+												2023-10-24
+											</span>
+										</a>
+									</li>
+								
+							</ul>
+							<p>
+								<a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_noticeList(); return false;">+ 더보기</a>
+							</p>
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+		</form>
+		
+	</div>
+</div>
+	
+
+		
+		
+		
+		<!-- Footer -->
+		<footer id="nFooter">
+			<div id="footer_wrap">
+				<div id="siteinfo">
+					<span class="term"><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_popup(1); return false;" title="이용약관 새 창으로 열기">이용약관</a><a href="https://kdata.or.kr/datavoucher/index.do#" onclick="fn_popup(2); return false;" title="개인정보처리방침 새 창으로 열기">개인정보처리방침</a></span>
+					<address>
+					(04513) 서울특별시 중구 세종대로9길 42 부영빌딩 7,8,11층 한국데이터산업진흥원
+					</address>
+					<span>
+						사업문의 <a href="tel:1833-2246" title="유선번호">1833-2246</a> | <a href="mailto:datavoucher@kdata.or.kr" title="이메일">datavoucher@kdata.or.kr</a> |
+						팩스 <a href="tel:02-318-5040" title="팩스번호">02-318-5040</a>
+					</span>
+					<p class="copyright">COPYRIGHT 2021 BY KOREA DATA AGENCY. ALL RIGHTS RESERVED.</p>
+				</div>
+				<div id="fMenu">
+					<div class="accLink">
+						<a href="https://www.kdata.or.kr/kr/contents/clean/view.do" target="_blank" title="부정수급 신고 새 창으로 열기">부정수급 신고</a>
+					</div>
+					<div class="footerIcon">
+						<a href="https://www.facebook.com/DATAVOUCHER/" target="_blank" title="데이터바우처 facebook 새 창으로 열기"><img src="./data/gnb-01.png" alt="facebook 로고"></a>
+						<a href="https://www.instagram.com/datavoucher/" target="_blank" title="데이터바우처 instagram 새 창으로 열기"><img src="./data/gnb-02.png" alt="instagram 로고"></a>
+						<a href="https://www.youtube.com/channel/UCGFbUlFO3qNN3e-zv276s9w" target="_blank" title="데이터바우처 youtube 새 창으로 열기"><img src="./data/gnb-03.png" alt="youtube 로고"></a>
+						<a href="https://www.kdata.or.kr/" target="_blank" title="데이터바우처 kdata 새 창으로 열기"><img src="./data/gnb-05.png" alt="kdata 로고"></a>
+						<a href="https://blog.naver.com/datavoucher/" target="_blank" title="데이터바우처 naver blog 새 창으로 열기"><img src="./data/gnb-06.png" alt="naver blog 로고"></a>
+					</div>
+					<a class="mark" href="http://webwatch.or.kr/" target="_blank" title="데이터바우처 WA 품질인증 마크 웹와치(WebWatch) 새 창으로 열기"><img src="./data/WA_Mark_kdata.png" alt="데이터바우처 WA 품질인증 마크, 웹와치(WebWatch) 2023.1.6 ~ 2024.1.5" title="WA 품질인증 마크, 웹와치(WebWatch) 2023.1.6 ~ 2024.1.5"></a>
+					<div class="related">
+						<div class="group group1">
+							<a href="https://kdata.or.kr/datavoucher/index.do#" id="famSite" onclick="fn_clickFamsite(); return false;" class="label" title="닫힘">패밀리사이트</a>
+							<ul class="list">
+								<li><a href="https://www.msit.go.kr/index.do" target="_blank" title="과학기술정보통신부 새 창으로 열기">과학기술정보통신부</a></li>
+								<li><a href="https://www.kdata.or.kr/" target="_blank" title="한국데이터산업진흥원 새 창으로 열기">한국데이터산업진흥원</a></li>
+								<li><a href="https://dataonair.or.kr/" target="_blank" title="데이터온에어 새 창으로 열기">데이터온에어</a></li>
+								<li><a href="https://www.dqc.or.kr/" target="_blank" title="데이터인증 새 창으로 열기">데이터인증</a></li>
+								<li><a href="https://dsz.kdata.or.kr/svc/main/main.do" target="_blank" title="데이터안심구역 새 창으로 열기">데이터안심구역</a></li>
+								<li><a href="https://dataonair.or.kr/bigdata/" target="_blank" title="빅데이터아카데미 새 창으로 열기">빅데이터아카데미</a></li>
+								<li><a href="https://dataonair.or.kr/bigjob/" target="_blank" title="빅데이터청년인재 새 창으로 열기">빅데이터청년인재</a></li>
+								<li><a href="http://www.kodia.kr/" target="_blank" title="한국데이터산업협회 새 창으로 열기">한국데이터산업협회</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- //Footer -->
+
+
+
+
+	
+	
+	<div id="newsPersonal" class="popup_wrap" style="display: none;">
+		<div class="popup_01">
+			<!-- 내용 -->
+			<div class="popup_cnt">
+				<h1 class="popup_tit_box" style="font-size: 22px; color: #000; font-weight: 600; text-align: center; padding-top:10px;">
+						개인정보 수집·이용 동의
+				</h1>
+				<p class="popup_text_box" style="font-size: 14px; color: #363636; font-weight: 600; line-height: 1.7em; margin: 10px 15px;">
+					한국데이터산업진흥원은 뉴스레터 발송을 위해 최소한의 개인정보를 수집하고 이용합니다.<br><br>
+					
+					 - 수집·이용 목적 : 뉴스레터 발송<br>
+					 - 수집·이용 항목 : 이름, 소속기관, 이메일주소<br>
+					 - 보유·이용 기간 : 서비스 종료 시 또는 뉴스레터 구독 해지 시 즉시 파기<br><br>
+					
+					동의를 거부하는 경우에 대한 안내<br>
+					 - 동의하지 않을 경우 개인정보 수집·이용 동의를 거부할 권리가 있습니다.<br>거부할 경우 뉴스레터 구독 서비스를 이용할 수 없습니다.
+				</p>
+			</div>
+			<!-- //내용 -->
+			<div class="closeLayer02">
+				<a href="javascript:closePopup(&#39;newsPersonal&#39;);" class="mr10">닫기</a>
+			</div>
+		</div>
+	</div>
+
+</body><whale-quicksearch translate="no"><template shadowrootmode="closed"><style></style><div class="quicksearch"></div></template></whale-quicksearch></html>
